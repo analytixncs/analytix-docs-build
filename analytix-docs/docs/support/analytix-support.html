@@ -1,0 +1,135 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Analytix Support · Newscycle Solutions - Analytix Docs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="[Optional Header]: # &quot;Analytix Support&quot;"/><meta property="og:title" content="Analytix Support · Newscycle Solutions - Analytix Docs"/><meta property="og:type" content="website"/><meta property="og:url" content=".//analytix-docs/index.html"/><meta property="og:description" content="[Optional Header]: # &quot;Analytix Support&quot;"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/analytix-docs/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/analytix-docs/css/main.css"/></head><body class="sideNavVisible doc separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/analytix-docs/"><img class="logo" src="/analytix-docs/img/newscycle-circle.png" alt="Newscycle Solutions - Analytix Docs"/><h2 class="headerTitleWithLogo">Newscycle Solutions - Analytix Docs</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/analytix-docs/docs/analytix/analytix-bi-overview.html" target="_self">Analytix</a></li><li class=""><a href="/analytix-docs/docs/bi/bi-resources.html" target="_self">BI</a></li><li class="siteNavGroupActive siteNavItemActive"><a href="/analytix-docs/docs/support/analytix-support.html" target="_self">Support</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Support Answers</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup navGroupActive"><h3>Support Answers</h3><ul><li class="navListItem navListItemActive"><a class="navItem navItemActive" href="/analytix-docs/docs/support/analytix-support.html">Analytix Support Answers</a></li><li class="navListItem"><a class="navItem" href="/analytix-docs/docs/support/bi-support.html">BI Support Answers</a></li></ul></div></div></section></div><script>
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              const headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                  document.body.classList.remove('tocActive');
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1>Analytix Support</h1></header><article><div><span><ul>
+<li><a href="#clearing-cal-data-from-qmc">Clearing CAL Data from QMC</a></li>
+<li><a href="#assigning-document-cals-and-full-use-(named-user)-cals">Assigning Document CALs and Full Use (Named User) CALs</a></li>
+<li><a href="#exporting-and-importing-bookmarks-using-ie-plugin">Exporting and Importing Bookmarks using IE Plugin</a></li>
+<li><a href="#removing-user-objects">Removing User Objects</a></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="clearing-cal-data-from-qmc"></a><a href="#clearing-cal-data-from-qmc" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Clearing CAL Data from QMC</h2>
+<p>This is an extreme measure in that you are removing the CAL license pgo file.  However, shared information will be retained in the <strong>.shared</strong> files.</p>
+<p>To clear all CAL data from the system, start the QMC and go to <strong>System\Setup\Qlikview Servers\Folders</strong> tab:</p>
+<p><img src="..\assets\support_1536243947527.png" alt="1536243947527"></p>
+<p>Look for the Root Folder location (see circled path above) and open up a Windows Explorer at this location.</p>
+<p>You should see a number of <strong>*.pgo</strong> files.</p>
+<p><img src="..\assets\support_1536244081111.png" alt="1536244081111"></p>
+<p>Next stop all Qlikview Services and then delete the <strong>CalData.pgo</strong> file.</p>
+<p>When you look at the license screen in the QMC, you should see an empty list of in the <strong>Assigned CALs</strong> area by going to <strong>System\Licenses\QlikView OEM Server\Client Access Licenses(CALs)\Assigned CALs</strong></p>
+<p><img src="..\assets\support_1536244729773.png" alt="1536244729773"></p>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="assigning-document-cals-and-full-use-named-user-cals"></a><a href="#assigning-document-cals-and-full-use-named-user-cals" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Assigning Document CALs and Full Use (Named User) CALs</h2>
+<p>A <strong>Document CAL</strong> allows one user to open one Analytix document. So this would allow a Sales Rep to view all the reports that exist in the SalesFlash.qvw. The license is perpetual and will allow the user to open and use all the reports that exist within a single document. When a user opens an Analytix Document and consumes a Document CAL the user will be stored and linked with the Analytix Document.</p>
+<p>A <strong>Full Use CAL</strong> allows one user to open any Analytix document. The license is perpetual and will the user to open any document until the license is revoked.</p>
+<p>The first thing to understand are the two ways that licenses can be assigned to end users:</p>
+<ol>
+<li><strong>Dynamic CAL Assignment</strong> – This lets Qlikview server assign licenses on a first come first serve basis. The hierarchy to this assignment is as follows:</li>
+</ol>
+<ul>
+<li>If a Full Use CAL is available, it will be used.</li>
+<li>If a Document CAL is available, it will be used.</li>
+</ul>
+<ol start="2">
+<li><strong>Manual CAL Assignment</strong> – A Qlikview administrator manually assigns an end user a Full Use or Document CAL.</li>
+</ol>
+<p>You can see that the <strong>Dynamic CAL</strong> assignment method does not work well when you have both Document and Full Use CALs. In this case it is probably best to turn OFF dynamic CAL assignment and instead manually assign users to CALs.</p>
+<h3><a class="anchor" aria-hidden="true" id="turning-off-dynamic-cal-assignment"></a><a href="#turning-off-dynamic-cal-assignment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Turning OFF Dynamic CAL Assignment</h3>
+<p>To turn off Dynamic CAL Assignment, go to the <strong>QMC -&gt; System tab -&gt; Licenses -&gt; Qlikview Server -&gt; Client Access Licenses (CALs) -&gt; General tab</strong> and UNCHECK the “Allow dynamic CAL assignment” checkbox:</p>
+<p><img src="..\assets\support_1536245135074.png" alt="1536245135074"></p>
+<h3><a class="anchor" aria-hidden="true" id="manually-assign-full-use-licenses"></a><a href="#manually-assign-full-use-licenses" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Manually Assign Full Use Licenses</h3>
+<p>To manually assign Full Use licenses to end users, go to the <strong>QMC -&gt; System tab -&gt; Licenses -&gt; Qlikview Server -&gt; Client Access Licenses (CALs) -&gt; Assigned CALs</strong> tab:</p>
+<p><img src="..\assets\support_1536245181672.png" alt="1536245181672"></p>
+<p>Once on this tab, click on the icon located in the right hand corner -&gt;<img src="..\assets\support_1536245231614.png" alt="1536245231614"></p>
+<p>This will bring up a &quot;Manage Users&quot; dialog.</p>
+<p><img src="..\assets\support_1536245264349.png" alt="1536245264349"></p>
+<p>In this dialog you can add the users who will be getting Full Use licenses. You may do this by searching for them, using the “Search for Users and Groups” box or by manually entering the <em>domain\usernames</em> of those users who are going to get a full use license.</p>
+<p><strong>NOTE:</strong> You may not be able to find the users by searching depending on how the domains have been set up.  If this is the case, use the manual entry method.</p>
+<p>You may enter multiple users in this input box by simply separating them with a semicolon:</p>
+<p><em>Domain\User1;Domain\User2</em></p>
+<h3><a class="anchor" aria-hidden="true" id="manual-assignment-of-document-cals"></a><a href="#manual-assignment-of-document-cals" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Manual Assignment of Document CALs</h3>
+<p>Documents CALs are assigned from the Documents-&gt;User Documents tab.</p>
+<p><img src="..\assets\support_1536245418867.png" alt="1536245418867"></p>
+<p>You assign user directly to the document you want them to have access to.</p>
+<p>To do this, simply click on the document and then in the right hand side of the screen choose the <strong>“Document CALs”</strong> tab.</p>
+<p><img src="..\assets\support_1536245452033.png" alt="1536245452033"></p>
+<p>Follow these steps:</p>
+<ol>
+<li>In the “Number of CALs allocated to this Document” input box, enter the number of users who you are going to assign to have access to this document</li>
+<li>Click on the Icon to the right of the screen in the Assigned Users section and enter the Domain\Usernames of the users who will have access to this doc and click OK.</li>
+<li>When done make sure to click on the Apply button.</li>
+</ol>
+<p>Follows these steps for each document that you are assigning Document CALs to.</p>
+<h3><a class="anchor" aria-hidden="true" id="options"></a><a href="#options" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Options</h3>
+<p>If you do not want to assign all the document CALs manually, you could instead just manually assign the Full Use CALs and then for each document that you want other users to have access to, assign the number of CALs for each document and the check the <strong>“Allow Dynamic CAL assignment”</strong> checkbox.</p>
+<p><img src="..\assets\support_1536245527622.png" alt="1536245527622"></p>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="exporting-and-importing-bookmarks-using-ie-plugin"></a><a href="#exporting-and-importing-bookmarks-using-ie-plugin" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Exporting and Importing Bookmarks using IE Plugin</h2>
+<h3><a class="anchor" aria-hidden="true" id="exporting-bookmarks"></a><a href="#exporting-bookmarks" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Exporting Bookmarks</h3>
+<p>Start by going to the Bookmarks menu and choosing More…</p>
+<p><img src="..\assets\support_1536257756100.png" alt="1536257756100"></p>
+<p>This will bring up the bookmarks dialog.  Go to the <strong>Document Bookmarks</strong> tab and click on the <strong>“Export”</strong> button.</p>
+<p><img src="..\assets\support_1536257803866.png" alt="1536257803866"></p>
+<p>This will bring up the Export Bookmarks dialog. Here it will allow you to choose which bookmarks to export.</p>
+<blockquote>
+<blockquote>
+<p>The <strong>Export</strong> button is only available on the <em>Document Bookmarks</em> tab, however, it will bring up a dialog that shows all bookmarks available to export.  These will include the bookmarks that you have created PLUS all of the shared bookmarks.  Unfortunately, there is no easy way to uncheck everything and just check your own bookmarks.  Also, if you have not prefixed your bookmarks with your intials, they may be hard to fine.</p>
+<p>Be aware, that if you export all of the bookmarks, when you import them, the <em>shared</em> bookmarks will become your bookmarks.</p>
+</blockquote>
+</blockquote>
+<p>Click on each one that you want to export and click OK.</p>
+<p><img src="..\assets\support_1536257826640.png" alt="1536257826640"></p>
+<p>This will bring up a Save As dialog. Enter a destination an</p>
+<p>d name for your bookmark file (Remember where it is, you will need it when you import!!) and click OK.  The file will be create with an <strong>*.BM.xml</strong> extension</p>
+<p>You are done exporting bookmarks.</p>
+<h3><a class="anchor" aria-hidden="true" id="importing-bookmarks"></a><a href="#importing-bookmarks" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Importing Bookmarks</h3>
+<p>Start by going to the Bookmarks menu and choosing More…</p>
+<p><img src="C:/Users/mark.mccoid/Documents/AnalytixDevelopment/AnalytixDevWork/WorkingDocs/Docs/assets/support_1536257756100.png" alt="1536257756100"></p>
+<p>This will bring up the bookmarks dialog.  Go to the <strong>User Bookmarks</strong> tab and click on the <strong>“Import”</strong> button.</p>
+<p><img src="..\assets\support_1536259191816.png" alt="1536259191816"></p>
+<p>Choose the bookmark file you want to import and click OK.  It will have an extension of <strong>*.BM.xml</strong>.</p>
+<p>This will bring up the <em>Import Bookmarks</em> dialog. Here it will allow you to choose which bookmarks to import. Click on each one that you want to import and click on Import.  If you want to deselect a bookmark, hold the control key and click on the bookmark to deselect.</p>
+<p>Once you have the bookmarks you want to move selected, click on the import button.  This will not import them yet, but will move them to the <strong>Current Bookmarks</strong> area.</p>
+<p><img src="..\assets\support_1536258752814.png" alt="1536258752814"></p>
+<p>If you would like to rename any of the bookmarks before importing them, simply hight the bookmark to rename, then click on the <strong>Rename button</strong>.  Once finished, click on OK to import the bookmarks.</p>
+<p><img src="..\assets\support_1536258890978.png" alt="1536258890978"></p>
+<p>What you have done is import all of the selected bookmarks into your <strong>User Bookmarks</strong> area.  These bookmarks are stored on the local computer you are running Analytix on.  The desired outcome is to have these bookmarks stored on the server, under your user.</p>
+<p>This is easily accomplished.  Make sure you are on the <strong>User Bookmarks</strong> tab, then click on the <strong>&quot;Move Local User Bookmarks to Server&quot;</strong> link.</p>
+<blockquote>
+<p>When you move bookmarks to the server, it is all or none.  You cannot just pick certain bookmarks.  This is ok because having all a user's bookmarks on the server makes it so they can be accessed from any computer.</p>
+</blockquote>
+<p><img src="..\assets\support_1536259062137.png" alt="1536259062137"></p>
+<p>Your bookmarks will be removed from the local repository to the server repository.</p>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="removing-user-objects"></a><a href="#removing-user-objects" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Removing User Objects</h2>
+<p>It seems like an easy task to remove a cloned object from an Analytix file. Simply Right click on the object and select Remove.</p>
+<p><img src="..\assets\support_1536261981874.png" alt="1536261981874"></p>
+<p>This will remove the object from the sheet, but the underlying cloned object still will exist in your Server Object Pane.</p>
+<p>So, to really fully remove an cloned object from the application you need to click on the “Server Objects icon” <img src="..\assets\support_twoheadedicon.png" alt="1536262030211">or press <strong>F2</strong> to open up the <strong>Server Objects Pane</strong>.</p>
+<p>Once in the <strong>Server Objects Pane</strong>, find the object that you want to remove permanently.</p>
+<blockquote>
+<p>You can only remove items from the “My Objects” section.</p>
+</blockquote>
+<p>Right click on the object you want to remove and select Remove.</p>
+<p><img src="..\assets\support_1536262165067.png" alt="1536262165067"></p>
+<p>You will be prompted if you want to remove the object. Removing an object will also remove any instances of that object on your sheets. But that’s OK, because you want to get rid of it!</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-next button" href="/analytix-docs/docs/support/bi-support.html">BI Support →</a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#clearing-cal-data-from-qmc">Clearing CAL Data from QMC</a></li><li><a href="#assigning-document-cals-and-full-use-named-user-cals">Assigning Document CALs and Full Use (Named User) CALs</a><ul class="toc-headings"><li><a href="#turning-off-dynamic-cal-assignment">Turning OFF Dynamic CAL Assignment</a></li><li><a href="#manually-assign-full-use-licenses">Manually Assign Full Use Licenses</a></li><li><a href="#manual-assignment-of-document-cals">Manual Assignment of Document CALs</a></li><li><a href="#options">Options</a></li></ul></li><li><a href="#exporting-and-importing-bookmarks-using-ie-plugin">Exporting and Importing Bookmarks using IE Plugin</a><ul class="toc-headings"><li><a href="#exporting-bookmarks">Exporting Bookmarks</a></li><li><a href="#importing-bookmarks">Importing Bookmarks</a></li></ul></li><li><a href="#removing-user-objects">Removing User Objects</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/analytix-docs/" class="nav-home"><img src="/analytix-docs/img/newscycle-circle.png" alt="Newscycle Solutions - Analytix Docs" width="66" height="58"/></a><div><h5>Docs</h5><a href="/analytix-docs/docs/analytixsetup.html">Getting Started With Analytix</a><a href="/analytix-docs/docs/bi-auditors.html">BI Docs</a></div><div><h5>Newscycle Solutions</h5><a href="http://newscycle.com/" target="_blank">Newscycle Website</a><a href="https://twitter.com/NEWSCYCLE_News?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank">Twitter</a></div><div><h5>More</h5><a href="/analytix-docs/blog">Blog</a></div></section><a href="https://newscyclesolutions.com" target="_blank"><img src="/analytix-docs/img/NewscycleLogo.png" alt="Newscycle Solutions" width="226" height="42" style="margin:1em auto;display:block;width:226px"/></a><section class="copyright">Copyright © 2018 Newscycle Solutions.</section></footer></div></body></html>
