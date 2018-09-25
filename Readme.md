@@ -1,5 +1,7 @@
 # Building & Deploying Analytix-docs to Heroku and Github
 
+## The URL to access is [https://analytix-docs.herokuapp.com/](https://analytix-docs.herokuapp.com/)
+
 This repository contains the static website build from the **analytix-docs** docusaurus repository.
 
 As you update the documents in the **analytix-docs** repository or modify the config files, you will want to deploy to the Heroku site so users have access to the updated docs.
