@@ -20,18 +20,20 @@ I have instead created a *junction* from the build directory to the **analytix-d
 
 
 
-To deploy to Heroku, first make sure you are in the *analytix-docs-build* directory.  Then whenever changes have been made, simply push to the heroku master
-
-```
-	$ git push heroku master
-```
-
-To commit to github run the following, again from the *analytix-docs-build* directory:
+Once the build is finished, you will need to commit the changes to github.  To do this run the following, again from the *analytix-docs-build* directory:
 
 ```
 $ git add .
 $ git commit -m "your comment"
 $ git push -u origin master
+```
+
+Lastly, the changes must be deployed to Heroku. 
+
+First make sure you are in the *analytix-docs-build* directory.  Then whenever changes have been made, simply push to the heroku master
+
+```
+	$ git push heroku master
 ```
 
 ## NOTE: Heroku Deploy Requirement
