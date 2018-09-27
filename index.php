@@ -1,1 +1,1 @@
-<?php header( 'Location: /analytix-docs/index.html' ) ;  ?>
+<?php header( 'Location: /index.html' ) ;  ?>
