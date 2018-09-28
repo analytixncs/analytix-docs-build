@@ -14,12 +14,6 @@ $ yarn run build
 
 This will build the static website in the `\analytix-docs\website\build\analytix-docs`directory.  This would then need to be moved to the **analytix-docs-build** repository directory.
 
-I have instead created a *junction* from the build directory to the **analytix-docs-build** repository directory.
-
-![](https://dl.dropboxusercontent.com/s/6pcldw99gjh8frz/analytix-docs-heroku1.png)
-
-
-
 Once the build is finished, you will need to commit the changes to github.  To do this run the following, again from the *analytix-docs-build* directory:
 
 ```
@@ -33,10 +27,30 @@ Lastly, the changes must be deployed to Heroku.
 First make sure you are in the *analytix-docs-build* directory.  Then whenever changes have been made, simply push to the heroku master
 
 ```
-	$ git push heroku master
+$ git push heroku master
 ```
 
-## NOTE: Heroku Deploy Requirement
+## The Easy Way
+
+I have setup an NPM script in the website's *package.json* file called **heroku-build**.  When you run this, it will use the npm-run-all module to run the *build* script and then a copy command that copies the build files to the analytix-docs-build directory.
+
+Here is the scripts from *package.json*
+
+```json
+"heroku-build": "npm-run-all build heroku -s",
+"build": "docusaurus-build",
+"heroku": "xcopy /E /Y \".\\build\\analytix-docs\\*.*\" \"..\\..\\analytix-docs-build\"",
+```
+
+To run the above, just get to the  `\analytix-docs\website\` and run 
+
+```
+$ yarn run heroku-build
+```
+
+Then follow the above directions for committing changes, pushing to master and then pushing to heroku.
+
+##  NOTE: Heroku Deploy Requirement
 
 Since Heroku only deploys apps and not static websites, we have to make it think this site is a web app.  This is done by include a simple `index.php`file in the *build\analytix-docs* directory.  
 
