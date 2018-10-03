@@ -14,6 +14,14 @@ $ yarn run build
 
 This will build the static website in the `\analytix-docs\website\build\analytix-docs`directory.  This would then need to be moved to the **analytix-docs-build** repository directory.
 
+You may do this manually or optionally, you can run the `heroku-build` command which will first build the website and then copy all the files to the *analytix-docs-build* directory.  This copy assumes that both the *analytix-docs* and *analyix-docs-build* directories are at the same level.
+
+someRoot/
+├── analytix-docs/
+├── analytix-docs-build/
+├── ...
+└── ...
+
 Once the build is finished, you will need to commit the changes to github.  To do this run the following, again from the *analytix-docs-build* directory:
 
 ```
