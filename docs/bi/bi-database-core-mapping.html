@@ -385,7 +385,7 @@ Also those credits in <em>aoPrepayment</em> apply are marked as ChargeType CREDI
 <tr><td>GroupMultiClient_ID</td><td>Link to <a href="#bridgeMultiClient_1">BridgeMultiClient</a>.GroupMultiClient_ID   The bridgeMultiClient table allows an insertion to be   linked to more than just the Primary Orderer and Payer.</td></tr>
 <tr><td>Household_ID</td><td>Link to dmHousehold.ID   The Household table was designed to be used to store the   history of address changes of a customer. Currently it is populated, but not   used in any of our reports or Analytix.</td></tr>
 <tr><td>AdProduct_ID</td><td>Link to <a href="#dmAdProduct">dmAdProduct</a>.ID</td></tr>
-<tr><td>Billing_Date_ID</td><td>NULL (Not Populated)</td></tr>
+<tr><td>Billing_Date_ID</td><td>AoInsertion.CreateDate<br />The billing date id was one of the fields which was created the early BI design, however, nothing was stored in it initially.  A customer asked us to extract the create date from AoInsertion and store it in fctInsertion, so we chose to use this field to avoid a schema change.  This is why it contains AoInsertion.CreateDate.</td></tr>
 <tr><td>Modified_Date_ID</td><td>Link to <a href="#dmDate_1">dmDate</a>   🡒  aoAdOrder.LastEditDate</td></tr>
 <tr><td>CommissionedRep_User_ID</td><td>Link to <a href="#dmUser">dmUser</a> 🡒  Sold By Rep in AdBooker</td></tr>
 <tr><td>AdContent_ID</td><td>Link to <a href="#dmAdContent">dmAdContent</a></td></tr>
