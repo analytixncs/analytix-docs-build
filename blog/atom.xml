@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>.//blog</id>
-    <title>Newscycle Solutions - Analytix Docs Blog</title>
+    <title>Analytix and BI Populator Docs Blog</title>
     <updated>2017-10-24T06:00:00Z</updated>
     <generator>Feed for Node.js</generator>
     <link rel="alternate" href=".//blog"/>
-    <subtitle>The best place to stay up-to-date with the latest Newscycle Solutions - Analytix Docs news and events.</subtitle>
-    <logo>.//img/newscycle-circle.png</logo>
-    <rights>Copyright © 2019 Newscycle Solutions</rights>
+    <subtitle>The best place to stay up-to-date with the latest Analytix and BI Populator Docs news and events.</subtitle>
+    <logo>.//img/Naviga_Logo_Dark_Icon.png</logo>
+    <rights>Copyright © 2019Naviga</rights>
     <entry>
         <title type="html"><![CDATA[New Version 1.0.0]]></title>
         <id>.//blog/2017/10/24/new-version-1.0.0.html</id>
