@@ -1,34 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0">
     <channel>
-        <title>Analytix and BI Populator Docs Blog</title>
+        <title>Naviga Analytics Blog</title>
         <link>.//blog</link>
-        <description>The best place to stay up-to-date with the latest Analytix and BI Populator Docs news and events.</description>
+        <description>The best place to stay up-to-date with the latest Naviga Analytics news and events.</description>
         <lastBuildDate>Tue, 24 Oct 2017 06:00:00 GMT</lastBuildDate>
-        <docs>http://blogs.law.harvard.edu/tech/rss</docs>
-        <generator>Feed for Node.js</generator>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
         <image>
-            <title>Analytix and BI Populator Docs Blog</title>
+            <title>Naviga Analytics Blog</title>
             <url>.//img/Naviga_Logo_Dark_Icon.png</url>
             <link>.//blog</link>
         </image>
-        <copyright>Copyright © 2019Naviga</copyright>
+        <copyright>Copyright © 2020Naviga</copyright>
         <item>
             <title><![CDATA[New Version 1.0.0]]></title>
             <link>.//blog/2017/10/24/new-version-1.0.0.html</link>
             <guid>.//blog/2017/10/24/new-version-1.0.0.html</guid>
             <pubDate>Tue, 24 Oct 2017 06:00:00 GMT</pubDate>
-            <description><![CDATA[<p>This blog post will test file name parsing issues when periods are present.</p>
-]]></description>
+            <description><![CDATA[<p>This blog post will test file name parsing issues when periods are present.</p> ]]></description>
         </item>
         <item>
             <title><![CDATA[Adding RSS Support]]></title>
             <link>.//blog/2017/09/26/adding-rss.html</link>
             <guid>.//blog/2017/09/26/adding-rss.html</guid>
             <pubDate>Tue, 26 Sep 2017 06:00:00 GMT</pubDate>
-            <description><![CDATA[<p>This is a test post.</p>
-<p>A whole bunch of other information.</p>
-]]></description>
+            <description><![CDATA[<p>This is a test post.</p> <p>A whole bunch of other information.</p> ]]></description>
         </item>
         <item>
             <title><![CDATA[Adding RSS Support - RSS Truncation Test]]></title>
