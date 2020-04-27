@@ -42,6 +42,25 @@ First make sure you are in the *analytix-docs-build* directory.  Then whenever c
 $ git push heroku master
 ```
 
+> If you clone this repo on a new machine, you won't have a remote to heroku, so you will need to create one.
+>
+> You will need to have heroku-cli installed on the machine and make sure you are logged into the heroku account where the app is deployed.
+>
+> [Heroku Docs](https://devcenter.heroku.com/articles/git#creating-a-heroku-remote)
+>
+> ```bash
+> $ heroku login
+> $ heroku git:remote -a analytix-docs	
+> ```
+>
+> You can also add the heroku remote via git as follows:
+>
+> ```bash
+> $ git remote add heroku https://git.heroku.com/analytix-docs.git
+> ```
+>
+> [Git Heroku Doc](https://gist.github.com/randallreedjr/aa89e069371d07371882eea2df15fb4d)
+
 ## The Easy Way
 
 I have setup an NPM script in the website's *package.json* file called **heroku-build**.  When you run this, it will use the npm-run-all module to run the *build* script and then a copy command that copies the build files to the analytix-docs-build directory.
