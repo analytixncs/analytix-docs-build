@@ -86,7 +86,7 @@
 <li><a href="#change-user-export-preferences-in-analytix">Change User Export Preferences in Analytix</a></li>
 </ul>
 <div style="page-break-after: always;"></div>
-<h2><a class="anchor" aria-hidden="true" id="setting-up-db-connection-files"></a><a href="#setting-up-db-connection-files" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Setting up DB Connection Files</h2>
+## Setting up DB Connection Files
 <hr>
 <p>To let Analytix know which BI and CORE databases to pull its data from, you need to set up the <strong>BIConnection.txt</strong> and <strong>COREConnection.txt</strong> files which are located in the Analytix root directory.</p>
 <h3><a class="anchor" aria-hidden="true" id="creating-db-connection-files"></a><a href="#creating-db-connection-files" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Creating DB Connection Files</h3>
@@ -127,7 +127,7 @@ COREConnection.txt files, the <strong>DatabaseVendor</strong> variable is set to
 <li><p>Repeat the above steps for the Core Connection ODBC Connection information.</p></li>
 </ol>
 <div style="page-break-after: always;"></div>
-<h2><a class="anchor" aria-hidden="true" id="manual-loading-of-analytix"></a><a href="#manual-loading-of-analytix" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Manual Loading of Analytix</h2>
+## Manual Loading of Analytix
 <hr>
 <p>Usually Analytix will be set to load on a schedule through Qlikview Server.  However, there are times when you may want to load Analytix manually.</p>
 <p>There is a hierarchy in the loading of Analytix files.</p>
@@ -158,7 +158,7 @@ COREConnection.txt files, the <strong>DatabaseVendor</strong> variable is set to
 <li>QVW\Salesflash.qvw</li>
 </ol>
 <div style="page-break-after: always;"></div>
-<h2><a class="anchor" aria-hidden="true" id="qvd-maintenance-using-the-qvd_allqvw-file"></a><a href="#qvd-maintenance-using-the-qvd_allqvw-file" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>QVD Maintenance using the QVD_ALL.qvw file</h2>
+## QVD Maintenance using the QVD_ALL.qvw file
 <hr>
 <p>The QVD_ALL.qvw file is located in the QVD directory and it is the Analytix application responsible for loading all the QVD files needed by Analytix.</p>
 <p>QVD stands for Qlikview Data and can be thought of as a proprietary data store for the Analytix applications.</p>
@@ -239,7 +239,7 @@ Also, the Relationship_Type is coded as 'PSEUDO PARENT/CHILD'</p>
 <p><strong>Grandparent as Child</strong> - Creates a Grandparent/Parent/child relationship with the grandparent as the parent and child also.  The G/P/C relationship created is with himself.
 Thought is, if the Grandparent has transactions, they will not be seen in a report unless he is a parent/child of himself because we link the orders to the child records.</p>
 <div style="page-break-after: always;"></div>
-<h2><a class="anchor" aria-hidden="true" id="spreadsheets"></a><a href="#spreadsheets" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Spreadsheets</h2>
+## Spreadsheets
 <hr>
 <p>There are several spreadsheets that you can update to enhance the Analytix applications.  There are a few rules to follow when updating these spreadsheets to meet your needs.</p>
 <ol>
@@ -281,8 +281,9 @@ You do not need to use all six groupings.  Just fill in the groupings that you n
 <li><p><strong>SalesFlashBudget.xls</strong> – If you want to load budget information into SalesFlash, you will add it to this spreadsheet.  You will be able to track budget by GL Number and Period/Month.  You also have the option to put a forecast amount in the spreadsheet, however this is optional.
 ​
 The loading of this spreadsheet is controlled in the SOURCE_SalesFlash.qvw file.  There is a switch that lets you turn on and off the loading of this spreadsheet.</p>
-<p><img src="../assets/ASETUP_Spreadsheets5.png" alt=""></p>
-<p>​</p></li>
+<p><img src="../assets/ASETUP_Spreadsheets5.png" alt=""></p></li>
+</ol>
+<ol start="5">
 <li><p><strong>SystemSheets.xls</strong> - Currently this houses one tab, the <strong>GLExcludeList</strong> worksheet.  Enter any GL Number in this sheet if you DO NOT want to see that GL or any revenue associated with it in SalesFlash.  Site will use this to keep converted balances from getting loaded into SalesFlash.
 ​
 <strong>NOTE:</strong> You will need to turn this feature on in SOURCE_SalesFlash.qvw:</p>
@@ -291,7 +292,7 @@ The loading of this spreadsheet is controlled in the SOURCE_SalesFlash.qvw file.
 <li><p><strong>AdvancedSearchHelp.xls</strong> – This spreadsheet contains Advanced Search expressions to help users make advanced selections without having to know the complex syntax of Set Analysis.  The items in this spreadsheet are displayed on the “Reference Charts” sheet -&gt; “Advanced Search” button.</p></li>
 </ol>
 <div style="page-break-after: always;"></div>
-<h2><a class="anchor" aria-hidden="true" id="setting-up-security-optional"></a><a href="#setting-up-security-optional" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Setting up Security-Optional</h2>
+## Setting up Security-Optional
 <p>Analytix is already secure by using Active Directory login information so that only licensed users are able to access the Analytix Applications.</p>
 <p>However, you may want to limit those users who do have access to Analytix to only see certain data within each application.</p>
 <p>Before starting down this path, be sure to read the <a href="../assets/downloads/qlikviewdocs/qlikview_introduction_to_section_access.pdf">Qlikview Docs on Section Access</a> docs before starting to make changes.</p>
@@ -304,13 +305,13 @@ The loading of this spreadsheet is controlled in the SOURCE_SalesFlash.qvw file.
 <p>This application will allow you to view and edit all variables that are used by Analytix.  You will also be able to add new variables if the need arises.</p>
 <p>See the <a href="analytix-admin-guide.html#variable-editor">Analytix Admin Guide</a> for usage details, but do note that if you add or modify a variable or variable value, you will need to use the Variable Editor to make the change.  Once the change has been made and you have exported the XML file, you will need to manually reload the source file with the “Reload Variables switch” turned on.</p>
 <div style="page-break-after: always;"></div>
-<h2><a class="anchor" aria-hidden="true" id="group-editor"></a><a href="#group-editor" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Group Editor</h2>
+## Group Editor
 <hr>
 <p>The Group Editor will allow you to view and edit all Cyclic and Drill Down groups in Analytix.  See the <a href="analytix-admin-guide.html#group-editor">Analytix Admin Guide</a> for usage details.</p>
 <p>You will be able to Edit, Add and Remove groups from Analytix.</p>
 <p>Just like the Variable Editor, any changes to Groups within Analytix must be done using the Group Editor. Once the change has been made and you have exported the XML file, you will need to manually reload the source file and following the instructions in the <a href="analytix-admin-guide.html#group-editor">Group Editor documentation</a> to get the updates into Analytix.</p>
 <div style="page-break-after: always;"></div>
-<h2><a class="anchor" aria-hidden="true" id="source-files"></a><a href="#source-files" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>SOURCE Files</h2>
+## SOURCE Files
 <hr>
 <p>All Analytix application have a corresponding Source file in the SOURCE directory.  The source file contains the main scripting for the application.  It also has a number of switches that you can use to control what gets loaded into the final application.</p>
 <p>You should not change any code in these files, but there are two ways for you to affect the load:</p>
@@ -343,7 +344,7 @@ If the Load Custom Scripts switch is on, SOURCE_SalesFlash.qvw will load all fil
 <p>There is a separate directory under the <em>CustomScripts</em> directory for each application.</p>
 <p><strong>NOTE:</strong> Make sure you test your script before putting into production.</p>
 <div style="page-break-after: always;"></div>
-<h2><a class="anchor" aria-hidden="true" id="change-user-export-preferences-in-analytix"></a><a href="#change-user-export-preferences-in-analytix" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Change User Export Preferences in Analytix</h2>
+## Change User Export Preferences in Analytix
 <hr>
 <p>When exporting to Excel it is important to also have your selection criteria exported in the Excel file.  Enabling this feature is different depending on which browsers your users are using.</p>
 <h3><a class="anchor" aria-hidden="true" id="using-the-ie-plugin"></a><a href="#using-the-ie-plugin" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using the IE Plugin</h3>

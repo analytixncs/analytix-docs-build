@@ -189,6 +189,50 @@ If you want to replace whitespace only where there are more than a certain numbe
 Now it will only replace if it finds 3 whitespace characters in a succession.</li>
 <li><strong>Replace Words</strong> - <code>brandname.replace(/ABC/gi, 'CBA')</code> Notice the the regex expression is just the text you want to look for with NO quotes.  I have also add the <code>gi</code> switches so that it searches and replaces all occurrences and ignores case while doing it.</li>
 </ol>
+<h3><a class="anchor" aria-hidden="true" id="extract-month-or-year-or-day-from-date-field"></a><a href="#extract-month-or-year-or-day-from-date-field" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Extract Month or Year or Day from Date field</h3>
+<p>If you have a date field and what to extract a portion of it (Day, Month, Year), the easiest way to do that is using the <a href="https://momentjs.com/"><em>moment</em></a> library that is available in Informer.</p>
+<p>Here is an example:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-comment">// Extract Month from issuedate date field</span>
+<span class="hljs-comment">// Note MM = 01, MMM = 'Nov', 'Dec', etc, MMMM = 'November', etc.</span>
+moment(issuedate).format(<span class="hljs-string">'MM'</span>)
+
+<span class="hljs-comment">//Extract Year from issuedate date field</span>
+moment(issuedate).format(<span class="hljs-string">'YYYY'</span>)
+
+</code></pre>
+<p>Here is a list of common arguments that can be passed to the format function.  Note, you can combine these in any way.</p>
+<p>For example: <strong>'YYYY-MM-DD'</strong> would produce <strong>'2020-01-01'</strong></p>
+<table>
+<thead>
+<tr><th style="text-align:left">Argument</th><th style="text-align:left">Output</th><th style="text-align:left">Description</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:left">YYYY</td><td style="text-align:left">2019</td><td style="text-align:left">4 digit year</td></tr>
+<tr><td style="text-align:left">YY</td><td style="text-align:left">19</td><td style="text-align:left">2 digit year</td></tr>
+<tr><td style="text-align:left">MMMM</td><td style="text-align:left">August</td><td style="text-align:left">Full month name</td></tr>
+<tr><td style="text-align:left">MMM</td><td style="text-align:left">Aug</td><td style="text-align:left">Abbreviated month name</td></tr>
+<tr><td style="text-align:left">MM</td><td style="text-align:left">08</td><td style="text-align:left">2 digit month</td></tr>
+<tr><td style="text-align:left">M</td><td style="text-align:left">8</td><td style="text-align:left">1 digit month</td></tr>
+<tr><td style="text-align:left">DDD</td><td style="text-align:left">225</td><td style="text-align:left">Day of the year</td></tr>
+<tr><td style="text-align:left">DD</td><td style="text-align:left">13</td><td style="text-align:left">Day of the month</td></tr>
+<tr><td style="text-align:left">Do</td><td style="text-align:left">13th</td><td style="text-align:left">Day of the month with ordinal</td></tr>
+<tr><td style="text-align:left">dddd</td><td style="text-align:left">Wednesday</td><td style="text-align:left">Full day name</td></tr>
+<tr><td style="text-align:left">ddd</td><td style="text-align:left">Wed</td><td style="text-align:left">Abbreviated day name</td></tr>
+<tr><td style="text-align:left">HH</td><td style="text-align:left">17</td><td style="text-align:left">Hours in 24 hour time</td></tr>
+<tr><td style="text-align:left">hh</td><td style="text-align:left">05</td><td style="text-align:left">Hours in 12 hour time</td></tr>
+<tr><td style="text-align:left">mm</td><td style="text-align:left">32</td><td style="text-align:left">Minutes</td></tr>
+<tr><td style="text-align:left">ss</td><td style="text-align:left">19</td><td style="text-align:left">Seconds</td></tr>
+<tr><td style="text-align:left">a</td><td style="text-align:left">am / pm</td><td style="text-align:left">Ante or post meridiem</td></tr>
+<tr><td style="text-align:left">A</td><td style="text-align:left">AM / PM</td><td style="text-align:left">Capitalized ante or post meridiem</td></tr>
+<tr><td style="text-align:left">ZZ</td><td style="text-align:left">+0900</td><td style="text-align:left">Timezone offset from UTC</td></tr>
+<tr><td style="text-align:left">X</td><td style="text-align:left">1410715640.579</td><td style="text-align:left">Unix timestamp in seconds</td></tr>
+<tr><td style="text-align:left">XX</td><td style="text-align:left">1410715640579</td><td style="text-align:left">Unix timestamp in milliseconds</td></tr>
+</tbody>
+</table>
+<p>To extract the <strong>Quarter</strong> number from a date, you will need to just use a different function from moment.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-comment">//Extract Quarter number from issuedate date field</span>
+moment(issuedate).quarter() <span class="hljs-comment">// returns a number from 1 to 4</span>
+</code></pre>
 <h3><a class="anchor" aria-hidden="true" id="mimicking-the-in-keyword"></a><a href="#mimicking-the-in-keyword" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Mimicking the IN keyword</h3>
 <p>In JavaScript there is not an &quot;IN&quot; keyword like there is in SQL.  However, the technique shown below will help you mimic this feature.</p>
 <p>You use the &quot;IN&quot; keyword when you have a question like:</p>
@@ -380,7 +424,7 @@ Now it will only replace if it finds 3 whitespace characters in a succession.</l
 <tr><td>moment</td><td>function</td><td>moment date manipulation library. <a href="https://momentjs.com">momentjs</a></td></tr>
 </tbody>
 </table>
-<p>To declare a variable use the <code>var</code> keyword.</p>
+<p>To declare a variable use the <code>var</code> keyword.  However, within the Powerscripts it seems you do not have to &quot;declare&quot; variables that you will be using.</p>
 <pre><code class="hljs css language-javascript"><span class="hljs-keyword">var</span> gtp = $inputs[<span class="hljs-string">'greaterThanPrice'</span>] || <span class="hljs-number">0</span>;
 <span class="hljs-keyword">if</span>($record.baseCost &gt;= gtp) {
     $record.isGreaterThan = <span class="hljs-literal">true</span>
@@ -390,6 +434,13 @@ Now it will only replace if it finds 3 whitespace characters in a succession.</l
 </code></pre>
 <p>Do not <code>return</code> anything from the Power Script.  Simply change the value of what you want.</p>
 <p>You can create multiple fields in a single Power Script.</p>
+<h3><a class="anchor" aria-hidden="true" id="using-inputs"></a><a href="#using-inputs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using $inputs</h3>
+<p>Many times on your Datasets, you will create <em>inputs</em>.  These are values that your end user will be prompted to enter upon the reloading of the Dataset.</p>
+<p>Usually these <em>inputs</em> are used in your criteria, however, there may be times when you want to use the value either in a calculation of another field or to simply display as a new field in the result set.</p>
+<p>You will be able to access these <em>inputs</em> in Calculated Fields and Powerscripts using the <strong>$inputs</strong> object.</p>
+<p>To access an input value, use the following syntax:</p>
+<pre><code class="hljs css language-javascript">$record.nameOfInput = $inputs[<span class="hljs-string">'nameOfInput'</span>]
+</code></pre>
 <h3><a class="anchor" aria-hidden="true" id="using-local"></a><a href="#using-local" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using $local</h3>
 <p>The $local keyword is very powerful in that it persists throughout the load process.  First thing to understand is that it is an Object.  Which means, you can declare multiple local persistent variables using the $local keyword:</p>
 <pre><code class="hljs css language-javascript">$local.count = <span class="hljs-number">0</span>;
@@ -421,6 +472,66 @@ $record.rowCount = $local.count++
 <p>Use the keyword <strong>delete</strong> followed by the column you want removed.</p>
 <pre><code class="hljs css language-javascript"><span class="hljs-keyword">delete</span> $record.columnToDelete
 </code></pre>
+<h3><a class="anchor" aria-hidden="true" id="using-fields-metadata"></a><a href="#using-fields-metadata" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using $fields Metadata</h3>
+<p>The <strong>$fields</strong> object has a key for each field in your query and each of those has some metadata on it that you can view and/or change.</p>
+<p>Here is the shape of the object:</p>
+<pre><code class="hljs css language-javascript">{
+    <span class="hljs-attr">issueYear</span>: {
+        <span class="hljs-attr">dataType</span>: <span class="hljs-string">'string'</span> | <span class="hljs-string">'double'</span> | <span class="hljs-string">'int'</span>,
+        <span class="hljs-attr">label</span>: <span class="hljs-string">''</span> <span class="hljs-comment">// Viewable label</span>
+        <span class="hljs-attr">position</span>: <span class="hljs-comment">// Position in output grid (int)</span>
+        name: <span class="hljs-comment">// This is the name as it is referred to in Calculated fields or Powerscripts</span>
+    },
+    <span class="hljs-attr">field2</span>: {
+        <span class="hljs-attr">dataType</span>: <span class="hljs-string">'string'</span> | <span class="hljs-string">'double'</span> | <span class="hljs-string">'int'</span>,
+        <span class="hljs-attr">label</span>: <span class="hljs-string">''</span> <span class="hljs-comment">// Viewable label</span>
+        <span class="hljs-attr">position</span>: <span class="hljs-comment">// Position in output grid (int)</span>
+        name: <span class="hljs-comment">// This is the name as it is referred to in Calculated fields or Powerscripts</span>
+    }, 
+    ...
+}
+</code></pre>
+<p>There are some other metadata available, but it isn't very useful.  If you want to query this data yourself, here is code that will let you view all of the properties on a field in the $field object.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-comment">// Inspect $fields object for a single field</span>
+$record.fieldInspect = <span class="hljs-built_in">Object</span>.keys($fields.issueDate).map(<span class="hljs-function"><span class="hljs-params">key</span> =&gt;</span> [key, $fields.issueDate[key]])
+</code></pre>
+<p>I have found this useful for changing a datatype of a field.  Informer will makes its best guess at the data type of a field.  Sometimes, you don't want its best guess.  For example, if you have created a Year field from a Date field, Informer will try and make that a number, which is a pain to format.  You can turn this into a string field as follows:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-comment">// Get the year of the issue date </span>
+$record.issueYear = moment($record.issuedate).format(<span class="hljs-string">'YYYY'</span>)
+<span class="hljs-comment">// Create a join column from issueYear and RepId to use to join to the goals spreadsheet</span>
+$record.joinField = <span class="hljs-string">`<span class="hljs-subst">${$record.issueYear}</span>-<span class="hljs-subst">${$record.repcode}</span>`</span>
+$fields.issueYear.dataType = <span class="hljs-string">'string'</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="query-object"></a><a href="#query-object" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>$query Object</h3>
+<p>I haven't found a use for this, but here is the shape of the $query object:</p>
+<pre><code class="hljs css language-javascript">{
+    <span class="hljs-attr">domain</span>: object
+    <span class="hljs-attr">_events</span>: object
+    <span class="hljs-attr">_eventsCount</span>: number
+    <span class="hljs-attr">_maxListeners</span>: <span class="hljs-literal">undefined</span>
+    <span class="hljs-attr">limit</span>: number: 
+    errorHandlers: object
+    <span class="hljs-attr">throughHandlers</span>: object
+    <span class="hljs-attr">postHandlers</span>: object
+    <span class="hljs-attr">preHandlers</span>: object
+    <span class="hljs-attr">options</span>: object
+    <span class="hljs-attr">params</span>: object
+    <span class="hljs-attr">fields</span>: object
+    <span class="hljs-attr">payload</span>: object
+    <span class="hljs-attr">dataTypes</span>: object
+    <span class="hljs-attr">handler</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>
+    <span class="hljs-title">language</span>: <span class="hljs-title">string</span>
+    <span class="hljs-title">user</span>: <span class="hljs-title">string</span>
+    <span class="hljs-title">_promise</span>: <span class="hljs-title">object</span>
+    <span class="hljs-title">preInvokedAt</span>: <span class="hljs-title">object</span>
+    <span class="hljs-title">preCompletedAt</span>: <span class="hljs-title">object</span>
+    <span class="hljs-title">handlerInvokedAt</span>: <span class="hljs-title">object</span>
+    <span class="hljs-title">handlerCompletedAt</span>: <span class="hljs-title">object</span>
+    <span class="hljs-title">result</span>: <span class="hljs-title">object</span>
+    <span class="hljs-title">postInvokedAt</span>: <span class="hljs-title">object</span>
+    <span class="hljs-title">postCompletedAt</span>: <span class="hljs-title">object</span>
+}
+</span></code></pre>
 <h2><a class="anchor" aria-hidden="true" id="powerscript-examples"></a><a href="#powerscript-examples" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Powerscript Examples</h2>
 <h3><a class="anchor" aria-hidden="true" id="getting-total-by-advertiser-and--of-total-by-advertiser"></a><a href="#getting-total-by-advertiser-and--of-total-by-advertiser" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Getting Total By Advertiser and % of Total By Advertiser</h3>
 <p>The <code>$local</code> variable can be very powerful by itself, but when used in conjunction with the <strong>Flush</strong> flow step, you can do a number of other things.</p>
@@ -459,7 +570,7 @@ $record.TotalByAdv = $local[$record.advCode]
 <p>This above code is simply creating the two new fields that we want.</p>
 <h3><a class="anchor" aria-hidden="true" id="proper-aggregations-in-normalized-data"></a><a href="#proper-aggregations-in-normalized-data" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Proper Aggregations in Normalized data</h3>
 <p>I will start by saying this code is not recommended for large datasets.  It slows down the load considerably.  However, it is always worth a try to see if will help.</p>
-<p>The scenario that call for this is a dataset that is loading a group of fields that includes some <strong>multivalued</strong> fields and that also runs a <strong>Normalize</strong> flow step on these multivalued fields.</p>
+<p>The scenario that calls for this is a dataset that is loading a group of fields that includes some <strong>multivalued</strong> fields and that also runs a <strong>Normalize</strong> flow step on these multivalued fields.</p>
 <p>This results in &quot;duplication&quot; of the data in non-multivalued fields.  Makes sense and works fine, unless you have a numeric NON multivalued field that you want to aggregate on.  This results in an over aggregation of this field.</p>
 <p>For example, if we had a dataset that contained the following:</p>
 <table>
@@ -512,6 +623,9 @@ $record.TotalByAdv = $local[$record.advCode]
 <p>Next do any other flow steps that need to happen before the Normalize (it is Ok if it is none), then do the Normalize Flow step.</p>
 <p>Lastly, create a Powerscript called &quot;OneToManyFix&quot; (or whatever you want to call it).</p>
 <p>Past the following code in the Powerscript.</p>
+<blockquote>
+<p>Make sure to update the $record.fieldToFix to the field(s) that need to be &quot;zeroed&quot; out on certain records.</p>
+</blockquote>
 <pre><code class="hljs css language-javascript"><span class="hljs-comment">// Initialize "prevCounter" in the local object if undefined</span>
 <span class="hljs-keyword">if</span> (!$local[<span class="hljs-string">"prevCounter"</span>]) {
     $local[<span class="hljs-string">"prevCounter"</span>] = <span class="hljs-number">1</span>
@@ -520,20 +634,205 @@ $record.TotalByAdv = $local[$record.advCode]
 <span class="hljs-comment">// If it is, then this is a "Duplicate" and we should zero out any numeric</span>
 <span class="hljs-comment">// variables that we want to aggregate</span>
 <span class="hljs-keyword">if</span> ($record.preCounter === $local[<span class="hljs-string">"prevCounter"</span>]) {
-    $record.beforeTaxAmt = <span class="hljs-number">0</span>
+    <span class="hljs-comment">// These will be all the fields that you do not want to be duplicated.</span>
+    <span class="hljs-comment">// These fields will be numeric fields</span>
+    $record.fieldToFix = <span class="hljs-number">0</span>
+    <span class="hljs-comment">// any other fields to fix</span>
 }
 <span class="hljs-comment">// update our local copy of the counter to the current one.</span>
 $local[<span class="hljs-string">"prevCounter"</span>] = $record.preCounter
 </code></pre>
-<p>You are not done yet!  You need to customize the contents of the second if statement</p>
-<pre><code class="hljs css language-javascript"><span class="hljs-keyword">if</span> ($record.preCounter === $local[<span class="hljs-string">"prevCounter"</span>]) {
-<span class="hljs-comment">// These will be all the fields that you do not want to be duplicated.</span>
-<span class="hljs-comment">// These fields will be numeric fields</span>
-    $record.beforeTaxAmt = <span class="hljs-number">0</span>
-    <span class="hljs-comment">// add yours here</span>
+<h3><a class="anchor" aria-hidden="true" id="normalize-doesnt-propagate-all-values"></a><a href="#normalize-doesnt-propagate-all-values" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Normalize Doesn't Propagate all Values</h3>
+<p>Sometimes when you normalize and you have <em>one-to-many</em> fields that are associated with <em>multi-valued</em> fields, those <em>one-to-many</em> only one iteration of the <em>one-to-many</em> fields will be populated.</p>
+<p>Here is an example of what you see even after applying the <em>Normalize</em> flow step:</p>
+<table>
+<thead>
+<tr><th>ID</th><th>One-To-Many</th><th>Multi-Valued</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>MM33001</td><td>15</td></tr>
+<tr><td>2</td><td></td><td>12</td></tr>
+<tr><td>3</td><td>MM55221</td><td>10</td></tr>
+<tr><td>4</td><td></td><td>40</td></tr>
+<tr><td>5</td><td></td><td>20</td></tr>
+</tbody>
+</table>
+<p>But what you really want is this:</p>
+<table>
+<thead>
+<tr><th>ID</th><th>One-To-Many</th><th>Multi-Valued</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>MM33001</td><td>15</td></tr>
+<tr><td>2</td><td>MM33001</td><td>12</td></tr>
+<tr><td>3</td><td>MM55221</td><td>10</td></tr>
+<tr><td>4</td><td>MM55221</td><td>40</td></tr>
+<tr><td>5</td><td>MM55221</td><td>20</td></tr>
+</tbody>
+</table>
+<p>To achieve this, you need to use Powerscript.</p>
+<p>After the Normalize flow step, add this Powerscript:</p>
+<p><strong>PropagateField</strong></p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">if</span> ($record.One-To-Many) {
+    $local.prevOne-To-Many = $record.One-To-Many     
+} 
+
+$record.One-To-Many = $local.prevOne-To-Many || <span class="hljs-string">''</span>
+</code></pre>
+<p>The first &quot;if&quot; statement is checking to see if we have a value in the <strong>One-To_Many</strong> field.  The expectation is that we will have a value before we encounter any of the &quot;empty&quot; columns.</p>
+<p>We then store this value and when we encounter the next rows <strong>One-To-Many</strong> field, if it is empty we, will populate it with the value that we had previously stored.</p>
+<p>The final line is using the <code>|| ''</code> as a precaution so that if there are any rows that do not have a <strong>One-To-Many</strong> field populated, we won't error out.</p>
+<h3><a class="anchor" aria-hidden="true" id="calculations-on-aggregated-values"></a><a href="#calculations-on-aggregated-values" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Calculations on Aggregated Values</h3>
+<p>As of Informer 5.2.1, you can not create an expression using fields that you aggregated.</p>
+<p>For example, you have created a pivot table with <strong>Year</strong> and <strong>Rep</strong>as Rows and then have Total aggregations on <strong>Net Revenue</strong> and <strong>Net Invoice</strong>, but you also what a <strong>Variance</strong> column (<strong>Net Revenue - Net Invoice</strong>).  There is currently not a way to do this via their standard tools.</p>
+<p>To accomplish this, you will need to calculate the aggregates at each level that you need them and create a new field for the Variance, or whatever other type of calculation that you need to do with the aggregated values.</p>
+<p>Before you can start, you need to determine what your aggregation levels are going to be.  In the above example, we have chosen, <strong>Year and Rep</strong>.</p>
+<p>We are going to create a <em>groupKey</em> for each of these levels and use that key to aggregate the totals in the <strong>$local</strong> object that Powerscript provides.</p>
+<p>This is the first Powerscript that will be needed:</p>
+<blockquote>
+<p>NOTE: There is a helper function called <strong>returnNumber</strong> which will accept anything and return a valid number.  If you don't pass a valid number, it returns 0.</p>
+</blockquote>
+<pre><code class="hljs css language-javascript"><span class="hljs-comment">// Get the year of the issue date </span>
+vIssueYear = moment($record.issuedate).format(<span class="hljs-string">'YYYY'</span>)
+
+<span class="hljs-comment">// Create a column for issueYear</span>
+$record.issueYear = vIssueYear
+<span class="hljs-comment">// Make sure the datatype for issueYear is a String</span>
+$fields.issueYear.dataType = <span class="hljs-string">'string'</span>
+
+<span class="hljs-comment">//*****************************************************</span>
+<span class="hljs-comment">// Start the aggregation process</span>
+<span class="hljs-comment">//*****************************************************</span>
+<span class="hljs-comment">/* It will create and generate the three levels of aggregate
+   data that will be used in the second Powerscript to calculate the three levels of
+   aggregates of the Yield calculations.
+   The three groups are:
+   issueYear (groupKey1)
+   issueYear + RepId (groupKey2)
+*/</span>
+<span class="hljs-comment">// Define the groupKey to be used across aggregates</span>
+groupKey1 = <span class="hljs-string">`<span class="hljs-subst">${vIssueYear}</span>`</span>
+groupKey2 = <span class="hljs-string">`<span class="hljs-subst">${vIssueYear}</span>-<span class="hljs-subst">${$record.salesrep_id_assoc_id}</span>`</span> 
+
+<span class="hljs-comment">// Initialize each group key</span>
+$local[groupKey1] = $local[groupKey1] ? $local[groupKey1] :  {<span class="hljs-attr">sumNet</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">sumInvoice</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">Group1Set</span>: <span class="hljs-literal">false</span>}
+$local[groupKey2] = $local[groupKey2] ? $local[groupKey2] :  {<span class="hljs-attr">sumNet</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">sumInvoice</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">Group2Set</span>: <span class="hljs-literal">false</span>}
+
+<span class="hljs-comment">// Add current records amount to the running total for each group key</span>
+<span class="hljs-comment">// GROUPKEY1</span>
+$local[groupKey1].sumNet = $local[groupKey1].sumNet + $record.orderNetAmt 
+$local[groupKey1].sumInvoice = $local[groupKey1].sumInvoice + returnNumber($record.invoiceID_assoc_invamount)
+
+<span class="hljs-comment">// GROUPKEY2</span>
+$local[groupKey2].sumNet = $local[groupKey2].sumNet + $record.orderNetAmt 
+$local[groupKey2].sumInvoice = $local[groupKey2].sumInvoice + returnNumber($record.invoiceID_assoc_invamount)
+
+<span class="hljs-comment">//------------------------------------------------------------------------------------</span>
+<span class="hljs-comment">//- FUNCTIONS </span>
+<span class="hljs-comment">//------------------------------------------------------------------------------------</span>
+<span class="hljs-comment">//* takes a value in and returns a number (parsed as float)</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">returnNumber</span>(<span class="hljs-params">numberIn</span>) </span>{
+    <span class="hljs-keyword">let</span> parsedNumber = <span class="hljs-built_in">parseFloat</span>(numberIn)
+    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">isNaN</span>(parsedNumber)) {
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>
+    } 
+    <span class="hljs-keyword">return</span> parsedNumber
 }
 </code></pre>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/informer/informer-basics.html"><span class="arrow-prev">← </span><span>Informer Basics</span></a><a class="docs-next button" href="/docs/informer/informer-system.html"><span>Informer System Stuff</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#calculated-fields">Calculated Fields</a></li><li><a href="#calculated-field-examples">Calculated Field Examples</a><ul class="toc-headings"><li><a href="#calculated-fields-with-multi-value-fields">Calculated Fields with Multi-value Fields</a></li><li><a href="#field-concatenation-using--and-template-literals">Field Concatenation using + and Template Literals</a></li><li><a href="#sql-case-when-in-javascript">SQL Case When in JavaScript</a></li><li><a href="#wildcard-searching">Wildcard Searching</a></li><li><a href="#replacing-values-in-a-string">Replacing Values in a String</a></li><li><a href="#mimicking-the-in-keyword">Mimicking the IN keyword</a></li><li><a href="#building-a-complex-example">Building a Complex Example</a></li></ul></li><li><a href="#powerscripts">Powerscripts</a><ul class="toc-headings"><li><a href="#using-local">Using $local</a></li><li><a href="#numbers-and-other-gotchas">Numbers and Other Gotchas</a></li><li><a href="#delete-a-column">Delete a column</a></li></ul></li><li><a href="#powerscript-examples">Powerscript Examples</a><ul class="toc-headings"><li><a href="#getting-total-by-advertiser-and--of-total-by-advertiser">Getting Total By Advertiser and % of Total By Advertiser</a></li><li><a href="#proper-aggregations-in-normalized-data">Proper Aggregations in Normalized data</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/Naviga_Logo_Dark_Icon.png" alt="Naviga Analytics" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/analytix/analytix-setup.html">Getting Started With Analytix</a><a href="/docs/bi/bi-auditors.html">BI Docs</a></div><div><h5>naviga</h5><a href="http://navigaglobal.com/" target="_blank">Website</a><a href="http://navigaglobal.com/blog/" target="_blank">naviga Blog</a><a href="https://twitter.com/navigaglobal" target="_blank">Twitter</a><a href="https://www.facebook.com/navigaglobal" target="_blank">Facebook</a><a href="https://www.linkedin.com/company/navigaglobal" target="_blank">LinkedIn</a></div><div><h5>More</h5><a href="/docs/analytix/analytix-bi-overview.html">Analytix Docs</a><a href="/docs/bi/bi-resources.html">BI Docs</a></div></section><a href="https://navigaglobal.com" target="_blank"><img src="/img/Naviga_Logo_Dark_Verticle.png" alt="naviga - Venture Forward" width="226" height="42" style="margin:1em auto;display:block;width:226px"/></a><section class="copyright">Copyright © 2020 naviga</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+<p>Now we have objects on the $local object that have totals for each level.  The object shape will look like this:</p>
+<pre><code class="hljs css language-javascript">$local = {
+  [groupKey1]: {
+    <span class="hljs-attr">sumInvoice</span>: float,
+    <span class="hljs-attr">sumNet</span>: float,
+    <span class="hljs-attr">Group1Set</span>: float
+  },
+    [groupKey2]: {
+    <span class="hljs-attr">sumInvoice</span>: float,
+    <span class="hljs-attr">sumNet</span>: float,
+    <span class="hljs-attr">Group2Set</span>: float
+  },
+}
+</code></pre>
+<p><strong>Step 2</strong></p>
+<p>After we have aggregated to the levels that we need, you will need to run a Flush Flow step:</p>
+<p><img src="..\assets\informer-javasript-calcaggr-001.png" alt="image-20200731124814556"></p>
+<p><strong>Step 3</strong></p>
+<p>The last step is another Powerscript that will do the calculations needed on the stored aggregations.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-comment">/*
+This is the second Powerscript.
+It needs to be run AFTER a Flush flow step.
+It will calculate the aggregate calculations at the three different groupings.
+Also this will create a field for each group key named
+groupKey1, groupKey2, groupKey3
+*/</span>
+
+<span class="hljs-comment">// Get the year of the issue date </span>
+vIssueYear = $record.issueYear
+
+<span class="hljs-comment">// Define the groupKey to be used across aggregates - Must be the same as those defined in the first Powerscript</span>
+groupKey1 = <span class="hljs-string">`<span class="hljs-subst">${vIssueYear}</span>`</span>
+groupKey2 = <span class="hljs-string">`<span class="hljs-subst">${vIssueYear}</span>-<span class="hljs-subst">${$record.salesrep_id_assoc_id}</span>`</span>
+
+<span class="hljs-comment">// GROUPKEY1</span>
+<span class="hljs-comment">// This If statement allows us to only return the total once.</span>
+<span class="hljs-comment">// By doing this, we can use the Total Aggregation function which keeps things more consistent</span>
+<span class="hljs-keyword">if</span> (!$local[groupKey1].Group1Set) {
+        <span class="hljs-comment">//Create a field for the GroupKey and each of the Totals for the groupKey</span>
+    $record.groupKey1 = groupKey1
+    $record.RepNetByYear_Total = $local[groupKey1].sumNet
+    $record.RepInvTotalForYear_Total = $local[groupKey1].sumInvoice
+    $record.NetInv_VarianceByYear_Total = ($local[groupKey1].sumNet - $local[groupKey1].sumInvoice)    
+    $local[groupKey1].Group1Set = <span class="hljs-literal">true</span>
+}
+
+
+<span class="hljs-comment">// GROUPKEY2</span>
+<span class="hljs-comment">// Same as for GroupKey1, but using groupKey2</span>
+<span class="hljs-keyword">if</span> (!$local[groupKey2].Group2Set) {
+    $record.groupKey2 = groupKey2
+    $record.RepNetByYearRep_Total = $local[groupKey2].sumNet
+    $record.RepInvTotalForRepYear_Total = $local[groupKey2].sumInvoice
+    $record.NetInv_VarianceByYearRep_Total = ($local[groupKey2].sumNet - $local[groupKey2].sumInvoice)  
+    $local[groupKey2].Group2Set = <span class="hljs-literal">true</span>
+}
+
+$fields.RepNetByYear_Total.dataType = <span class="hljs-string">'number'</span>
+$fields.RepInvTotalForYear_Total.dataType = <span class="hljs-string">'number'</span>
+$fields.NetInv_VarianceByYear_Total.dataType = <span class="hljs-string">'number'</span>
+
+$fields.RepNetByYearRep_Total.dataType = <span class="hljs-string">'number'</span>
+$fields.RepInvTotalForRepYear_Total.dataType = <span class="hljs-string">'number'</span>
+$fields.NetInv_VarianceByYearRep_Total.dataType = <span class="hljs-string">'number'</span>
+</code></pre>
+<table>
+<thead>
+<tr><th>Issue Year</th><th>Rep Id</th><th>Net Revenue</th><th>Invoice Revenue</th></tr>
+</thead>
+<tbody>
+<tr><td>2019</td><td>MM</td><td>100</td><td>75</td></tr>
+<tr><td>2019</td><td>SW</td><td>50</td><td>50</td></tr>
+<tr><td>2020</td><td>MM</td><td>125</td><td>100</td></tr>
+<tr><td>2020</td><td>SW</td><td>25</td><td>20</td></tr>
+<tr><td>2020</td><td>TE</td><td>75</td><td>75</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="using-the-momentjs-date-library"></a><a href="#using-the-momentjs-date-library" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using the momentjs Date Library</h2>
+<p>I will try to show you the most common uses of <strong>momentjs</strong> within Informer, however, you can get more information from the <strong>momentjs</strong> website.</p>
+<ul>
+<li><a href="https://momentjs.com/docs/">momentjs Docs</a></li>
+<li><a href="https://momentjs.com/guides/">momentjs Guides</a></li>
+</ul>
+<p><strong>Extract Year, Month or Day from Date</strong></p>
+<pre><code class="hljs css language-javascript"><span class="hljs-comment">// Extract pieces from a date</span>
+<span class="hljs-comment">// $record.issuedate is a Date type</span>
+year = moment($record.issuedate).format(<span class="hljs-string">'YYYY'</span>) <span class="hljs-comment">// Year</span>
+month = moment($record.issuedate).format(<span class="hljs-string">'MM'</span>) <span class="hljs-comment">// month number with preceeding zero if needed</span>
+day = moment($record.issuedate).format(<span class="hljs-string">'DD'</span>) <span class="hljs-comment">// day number with preceeding zero if needed</span>
+
+<span class="hljs-comment">// If the field is a string, but you know the format of the date, you can do the following:</span>
+momentDateField = moment($record.dateString, <span class="hljs-string">'MM/DD/YYYY'</span>)
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/informer/informer-basics.html"><span class="arrow-prev">← </span><span>Informer Basics</span></a><a class="docs-next button" href="/docs/informer/informer-system.html"><span>Informer System Stuff</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#calculated-fields">Calculated Fields</a></li><li><a href="#calculated-field-examples">Calculated Field Examples</a><ul class="toc-headings"><li><a href="#calculated-fields-with-multi-value-fields">Calculated Fields with Multi-value Fields</a></li><li><a href="#field-concatenation-using--and-template-literals">Field Concatenation using + and Template Literals</a></li><li><a href="#sql-case-when-in-javascript">SQL Case When in JavaScript</a></li><li><a href="#wildcard-searching">Wildcard Searching</a></li><li><a href="#replacing-values-in-a-string">Replacing Values in a String</a></li><li><a href="#extract-month-or-year-or-day-from-date-field">Extract Month or Year or Day from Date field</a></li><li><a href="#mimicking-the-in-keyword">Mimicking the IN keyword</a></li><li><a href="#building-a-complex-example">Building a Complex Example</a></li></ul></li><li><a href="#powerscripts">Powerscripts</a><ul class="toc-headings"><li><a href="#using-inputs">Using $inputs</a></li><li><a href="#using-local">Using $local</a></li><li><a href="#numbers-and-other-gotchas">Numbers and Other Gotchas</a></li><li><a href="#delete-a-column">Delete a column</a></li><li><a href="#using-fields-metadata">Using $fields Metadata</a></li><li><a href="#query-object">$query Object</a></li></ul></li><li><a href="#powerscript-examples">Powerscript Examples</a><ul class="toc-headings"><li><a href="#getting-total-by-advertiser-and--of-total-by-advertiser">Getting Total By Advertiser and % of Total By Advertiser</a></li><li><a href="#proper-aggregations-in-normalized-data">Proper Aggregations in Normalized data</a></li><li><a href="#normalize-doesnt-propagate-all-values">Normalize Doesn't Propagate all Values</a></li><li><a href="#calculations-on-aggregated-values">Calculations on Aggregated Values</a></li></ul></li><li><a href="#using-the-momentjs-date-library">Using the momentjs Date Library</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/Naviga_Logo_Dark_Icon.png" alt="Naviga Analytics" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/analytix/analytix-setup.html">Getting Started With Analytix</a><a href="/docs/bi/bi-auditors.html">BI Docs</a></div><div><h5>naviga</h5><a href="http://navigaglobal.com/" target="_blank">Website</a><a href="http://navigaglobal.com/blog/" target="_blank">naviga Blog</a><a href="https://twitter.com/navigaglobal" target="_blank">Twitter</a><a href="https://www.facebook.com/navigaglobal" target="_blank">Facebook</a><a href="https://www.linkedin.com/company/navigaglobal" target="_blank">LinkedIn</a></div><div><h5>More</h5><a href="/docs/analytix/analytix-bi-overview.html">Analytix Docs</a><a href="/docs/bi/bi-resources.html">BI Docs</a></div></section><a href="https://navigaglobal.com" target="_blank"><img src="/img/Naviga_Logo_Dark_Verticle.png" alt="naviga - Venture Forward" width="226" height="42" style="margin:1em auto;display:block;width:226px"/></a><section class="copyright">Copyright © 2020 naviga</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;
